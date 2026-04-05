@@ -54,8 +54,19 @@ function initNavigation() {
     overlay.addEventListener('click', closeNav);
   }
 
-  // Close on link click (mobile)
+  // Close on link click (mobile) — but NOT for dropdown triggers
   links.querySelectorAll('.nav__link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      // Skip dropdown triggers on mobile — let them toggle instead
+      if (window.innerWidth <= 768 && link.classList.contains('nav__dropdown-trigger')) {
+        return;
+      }
+      closeNav();
+    });
+  });
+
+  // Close nav when clicking a dropdown sub-link on mobile
+  links.querySelectorAll('.nav__dropdown-link').forEach(link => {
     link.addEventListener('click', closeNav);
   });
 
