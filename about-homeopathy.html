@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" class="has-top-bar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about homeopathy — its principles, history, how remedies are made, and how it compares to conventional medicine. Understand the science of natural healing.">
+  <meta name="keywords" content="what is homeopathy, homeopathy principles, Samuel Hahnemann, like cures like, potentization, natural medicine">
+  <title>About Homeopathy — GeneticHomeopathy</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+</head>
+<body>
+
+  <!-- Top Contact Bar -->
+  <div class="top-bar" id="top-bar">
+    <div class="top-bar__inner">
+      <div class="top-bar__info">
+        <a href="tel:+15551234567" class="top-bar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +1 (555) 123-4567</a>
+        <a href="mailto:hello@genetichomeopathy.com" class="top-bar__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> hello@genetichomeopathy.com</a>
+      </div>
+      <div class="top-bar__social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" id="nav-logo">
+        <div class="nav__logo-icon"><svg viewBox="0 0 40 40" fill="none"><path d="M20 4C20 4 8 14 8 24C8 30.627 13.373 36 20 36C26.627 36 32 30.627 32 24C32 14 20 4 20 4Z" fill="#6b7e5e" opacity="0.2"/><path d="M20 8C20 8 12 16 12 23C12 27.418 15.582 31 20 31C24.418 31 28 27.418 28 23C28 16 20 8 20 8Z" fill="#6b7e5e" opacity="0.4"/><path d="M20 12C20 12 15 18 15 22.5C15 25.538 17.462 28 20 28C22.538 28 25 25.538 25 22.5C25 18 20 12 20 12Z" fill="#6b7e5e"/><line x1="20" y1="20" x2="20" y2="36" stroke="#6b7e5e" stroke-width="2"/></svg></div>
+        <span class="nav__logo-text">Genetic<span>Homeopathy</span></span>
+      </a>
+      <div class="nav__links" id="nav-links">
+        <a href="index.html" class="nav__link">Home</a>
+        <div class="nav__dropdown"><a href="about.html" class="nav__link nav__dropdown-trigger">About <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></a><div class="nav__dropdown-menu"><a href="about.html" class="nav__dropdown-link">About Us</a><a href="about-homeopathy.html" class="nav__dropdown-link">About Homeopathy</a></div></div>
+        <a href="we-treat.html" class="nav__link">We Treat</a>
+        <a href="products.html" class="nav__link">Our Remedies</a>
+        <div class="nav__dropdown"><span class="nav__link nav__dropdown-trigger">Resources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span><div class="nav__dropdown-menu"><a href="blog.html" class="nav__dropdown-link">Blog</a><a href="gallery.html" class="nav__dropdown-link">Gallery</a><a href="reviews.html" class="nav__dropdown-link">Patient Reviews</a></div></div>
+        <a href="contact.html" class="nav__link">Consultation</a>
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta">Book Now</a>
+      </div>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- Sticky Sidebar -->
+  <div class="quick-contact" id="quick-contact">
+    <a href="tel:+15551234567" class="quick-contact__btn quick-contact__btn--phone" aria-label="Call us"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="quick-contact__label">Call Us</span></a>
+    <a href="https://wa.me/15551234567" class="quick-contact__btn quick-contact__btn--whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.625-1.462A11.936 11.936 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.168 0-4.183-.592-5.923-1.621l-.425-.252-2.742.868.876-2.694-.277-.44A9.777 9.777 0 0 1 2.182 12c0-5.418 4.4-9.818 9.818-9.818S21.818 6.582 21.818 12 17.418 21.818 12 21.818z"/></svg><span class="quick-contact__label">WhatsApp</span></a>
+    <a href="contact.html" class="quick-contact__btn quick-contact__btn--book" aria-label="Book"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="quick-contact__label">Book</span></a>
+  </div>
+
+  <!-- Page Header -->
+  <section class="page-header" id="homeopathy-header">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="breadcrumb__separator">›</span><a href="about.html">About</a><span class="breadcrumb__separator">›</span><span>About Homeopathy</span></nav>
+      <h1>Understanding Homeopathy</h1>
+      <p class="subtitle subtitle--centered">A 200-year-old system of natural medicine that works with your body's innate healing intelligence — not against it.</p>
+    </div>
+  </section>
+
+  <!-- What is Homeopathy -->
+  <section class="section" id="what-is-homeopathy">
+    <div class="container">
+      <div class="about-story fade-in">
+        <div class="about-story__content">
+          <span class="label">The Foundation</span>
+          <h2>What Is Homeopathy?</h2>
+          <p>Homeopathy is a natural system of medicine developed over 200 years ago by the German physician <strong>Dr. Samuel Hahnemann</strong> (1755–1843). Dissatisfied with the harsh medical practices of his era — bloodletting, purging, and toxic mercury treatments — Hahnemann sought a gentler, more effective approach to healing.</p>
+          <p>The word "homeopathy" comes from the Greek words <em>homoios</em> (similar) and <em>pathos</em> (suffering). It is based on the principle that a substance which causes symptoms in a healthy person can, in highly diluted form, treat similar symptoms in a sick person.</p>
+          <p>Unlike conventional medicine that often suppresses symptoms, homeopathy stimulates the body's own healing response — its <strong>vital force</strong> — to restore balance and promote lasting wellness.</p>
+        </div>
+        <div class="about-story__image">
+          <img src="assets/images/hero-botanical.png" alt="Botanical illustration of homeopathic healing plants" width="500" height="500" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Principles -->
+  <section class="section section--sage" id="principles-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Core Principles</span>
+        <h2>The Pillars of Homeopathic Medicine</h2>
+        <p class="subtitle subtitle--centered">Four foundational principles guide every homeopathic treatment.</p>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle-card fade-in stagger-1">
+          <div class="principle-card__icon">⚖️</div>
+          <h3 class="principle-card__title">Like Cures Like</h3>
+          <p class="principle-card__text">The fundamental law — <em>Similia Similibus Curentur</em>. A substance that produces symptoms in a healthy person can cure similar symptoms in a sick person. For example, Allium cepa (onion) causes watery eyes and runny nose, so it's used to treat hay fever with those exact symptoms.</p>
+        </div>
+        <div class="principle-card fade-in stagger-2">
+          <div class="principle-card__icon">🧬</div>
+          <h3 class="principle-card__title">The Vital Force</h3>
+          <p class="principle-card__text">Hahnemann proposed that the body is animated by a dynamic "vital force" — an innate healing intelligence. Illness reflects a disturbance to this vital force, and the correctly chosen remedy acts as a catalyst to stimulate the body's natural self-healing capacity and restore equilibrium.</p>
+        </div>
+        <div class="principle-card fade-in stagger-3">
+          <div class="principle-card__icon">💧</div>
+          <h3 class="principle-card__title">The Minimum Dose</h3>
+          <p class="principle-card__text">Remedies are prepared through a unique process of serial dilution and vigorous shaking (succussion) called <strong>potentization</strong>. This minimizes toxicity while, practitioners believe, enhancing the remedy's therapeutic impact — making treatments extremely gentle with no side effects.</p>
+        </div>
+        <div class="principle-card fade-in stagger-4">
+          <div class="principle-card__icon">👤</div>
+          <h3 class="principle-card__title">Individualized Treatment</h3>
+          <p class="principle-card__text">No two patients receive the same treatment. Homeopathy treats the <strong>whole person</strong> — physical symptoms, emotional state, mental patterns, and constitutional type. Two patients with migraines may receive entirely different remedies based on their unique symptom profiles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Remedies Are Made -->
+  <section class="section" id="potentization-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">The Process</span>
+        <h2>How Homeopathic Remedies Are Made</h2>
+        <p class="subtitle subtitle--centered">The unique preparation process that makes homeopathic remedies safe, gentle, and effective.</p>
+      </div>
+
+      <div class="process-steps fade-in">
+        <div class="process-step">
+          <div class="process-step__icon">🌿</div>
+          <h4 class="process-step__title">Source Material</h4>
+          <p class="process-step__text">Natural substances — plants, minerals, or animal products — are carefully selected. Common sources include Arnica montana, Belladonna, Calendula, and Sulphur.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step__icon">🧪</div>
+          <h4 class="process-step__title">Mother Tincture</h4>
+          <p class="process-step__text">The raw material is dissolved in alcohol or water to create the "mother tincture" — the starting solution from which all potencies are derived.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step__icon">💧</div>
+          <h4 class="process-step__title">Serial Dilution</h4>
+          <p class="process-step__text">One part tincture is mixed with 99 parts solvent (for "C" potencies). This dilution is repeated multiple times, creating 6C, 30C, 200C, and higher potencies.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-step__icon">⚡</div>
+          <h4 class="process-step__title">Succussion</h4>
+          <p class="process-step__text">After each dilution, the solution is vigorously shaken (succussed). This step is critical — practitioners believe it imprints the energetic signature of the substance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="section section--alt" id="comparison-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Understanding the Differences</span>
+        <h2>Homeopathy vs. Conventional vs. Herbal Medicine</h2>
+      </div>
+
+      <div class="fade-in" style="overflow-x: auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Homeopathy</th>
+              <th>Conventional Medicine</th>
+              <th>Herbal Medicine</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Approach</strong></td>
+              <td>Treats the whole person; addresses root cause</td>
+              <td>Targets specific disease or symptom</td>
+              <td>Uses plant-based compounds for biochemical effects</td>
+            </tr>
+            <tr>
+              <td><strong>Dosage</strong></td>
+              <td>Ultra-diluted, potentized remedies</td>
+              <td>Material doses of synthetic or natural drugs</td>
+              <td>Material doses of plant extracts</td>
+            </tr>
+            <tr>
+              <td><strong>Side Effects</strong></td>
+              <td>None when used as directed</td>
+              <td>Common; can be significant</td>
+              <td>Possible interactions and side effects</td>
+            </tr>
+            <tr>
+              <td><strong>Personalization</strong></td>
+              <td>Highly individualized per patient</td>
+              <td>Standardized protocols</td>
+              <td>General application by condition</td>
+            </tr>
+            <tr>
+              <td><strong>Safe for All Ages</strong></td>
+              <td>Yes — infants, pregnant, elderly</td>
+              <td>Age restrictions common</td>
+              <td>Some herbs unsafe for children/pregnancy</td>
+            </tr>
+            <tr>
+              <td><strong>Drug Interactions</strong></td>
+              <td>None — safe alongside other treatments</td>
+              <td>Frequent interactions</td>
+              <td>Can interact with medications</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- History Timeline -->
+  <section class="section" id="history-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">A Rich Legacy</span>
+        <h2>The History of Homeopathy</h2>
+      </div>
+
+      <div class="timeline fade-in">
+        <div class="timeline-item">
+          <div class="timeline-item__year">1796</div>
+          <h4 class="timeline-item__title">Birth of Homeopathy</h4>
+          <p class="timeline-item__text">Dr. Samuel Hahnemann publishes his first essay on the principle of "like cures like" after his famous cinchona bark experiment, marking the beginning of homeopathy.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">1810</div>
+          <h4 class="timeline-item__title">The Organon of Medicine</h4>
+          <p class="timeline-item__text">Hahnemann publishes his seminal work, <em>Organon of the Rational Art of Healing</em>, laying out the complete philosophy, principles, and methodology of homeopathic practice.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">1835</div>
+          <h4 class="timeline-item__title">Materia Medica Pura</h4>
+          <p class="timeline-item__text">Hahnemann completes his detailed documentation of remedy "provings" — systematic testing of substances on healthy volunteers to catalog their symptom profiles.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">1900s</div>
+          <h4 class="timeline-item__title">Global Expansion</h4>
+          <p class="timeline-item__text">Homeopathy spreads worldwide — thriving in India, Europe, and the Americas. India integrates it into its national healthcare system, where it remains one of the most popular forms of medicine.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-item__year">Today</div>
+          <h4 class="timeline-item__title">Modern Practice</h4>
+          <p class="timeline-item__text">Over 200 million people worldwide use homeopathy. It is recognized by the WHO and practiced in over 80 countries, with growing integration into complementary and integrative healthcare models.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--sage" id="homeopathy-cta">
+    <div class="container">
+      <div class="cta-banner fade-in">
+        <h2>Experience Homeopathy for Yourself</h2>
+        <p>Book a complimentary consultation to discover how personalized homeopathic treatment can address your specific health concerns — naturally.</p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn--gold btn--lg">Book Free Consultation</a>
+          <a href="we-treat.html" class="btn btn--outline-light btn--lg">See Conditions We Treat</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">Genetic<span>Homeopathy</span></div>
+          <p class="footer__description">Embracing the gentle power of nature to restore balance, vitality, and wellness. Your trusted partner in holistic homeopathic care since 2018.</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.13C5.12 19.56 12 19.56 12 19.56s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48" fill="#fff"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <nav class="footer__links"><a href="index.html" class="footer__link">Home</a><a href="about.html" class="footer__link">About Us</a><a href="about-homeopathy.html" class="footer__link">About Homeopathy</a><a href="products.html" class="footer__link">Our Remedies</a><a href="contact.html" class="footer__link">Consultation</a></nav>
+        </div>
+        <div>
+          <h4 class="footer__heading">Resources</h4>
+          <nav class="footer__links"><a href="blog.html" class="footer__link">Blog</a><a href="gallery.html" class="footer__link">Gallery</a><a href="reviews.html" class="footer__link">Patient Reviews</a><a href="we-treat.html" class="footer__link">We Treat</a><a href="faq.html" class="footer__link">FAQ</a></nav>
+        </div>
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <span class="footer__link">📍 120 Healing Path, Sage Valley, CA 90210</span>
+            <a href="tel:+15551234567" class="footer__link">📞 +1 (555) 123-4567</a>
+            <a href="mailto:hello@genetichomeopathy.com" class="footer__link">✉️ hello@genetichomeopathy.com</a>
+            <span class="footer__link">🕘 Mon–Sat: 9am – 6pm</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 GeneticHomeopathy. All rights reserved.</p>
+        <div class="footer__legal-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Disclaimer</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
