@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryLightbox();
   initBlogFilters();
   initReviewFilters();
+  initHeroSlider();
 });
 
 
@@ -620,4 +621,36 @@ function initReviewFilters() {
       });
     });
   });
+}
+
+/* ---------- Hero Slider ---------- */
+function initHeroSlider() {
+  const slides = document.querySelectorAll('.hero-slide');
+  if (slides.length === 0) return;
+
+  const btnPrev = document.getElementById('slider-prev');
+  const btnNext = document.getElementById('slider-next');
+  let currentSlide = 0;
+  let sliderInterval;
+
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    resetInterval();
+  }
+
+  function nextSlide() { goToSlide(currentSlide + 1); }
+  function prevSlide() { goToSlide(currentSlide - 1); }
+
+  function resetInterval() {
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(nextSlide, 6000);
+  }
+
+  if (btnNext) btnNext.addEventListener('click', nextSlide);
+  if (btnPrev) btnPrev.addEventListener('click', prevSlide);
+
+  // Start auto play
+  resetInterval();
 }

@@ -41,17 +41,7 @@
   <nav class="nav" id="main-nav" aria-label="Main navigation">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo" id="nav-logo">
-        <div class="nav__logo-icon">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 4C20 4 8 14 8 24C8 30.627 13.373 36 20 36C26.627 36 32 30.627 32 24C32 14 20 4 20 4Z" fill="#6b7e5e" opacity="0.2"/>
-            <path d="M20 8C20 8 12 16 12 23C12 27.418 15.582 31 20 31C24.418 31 28 27.418 28 23C28 16 20 8 20 8Z" fill="#6b7e5e" opacity="0.4"/>
-            <path d="M20 12C20 12 15 18 15 22.5C15 25.538 17.462 28 20 28C22.538 28 25 25.538 25 22.5C25 18 20 12 20 12Z" fill="#6b7e5e"/>
-            <line x1="20" y1="20" x2="20" y2="36" stroke="#6b7e5e" stroke-width="2"/>
-            <path d="M16 30C16 30 18 27 20 27" stroke="#6b7e5e" stroke-width="1.5" fill="none"/>
-            <path d="M24 30C24 30 22 27 20 27" stroke="#6b7e5e" stroke-width="1.5" fill="none"/>
-          </svg>
-        </div>
-        <span class="nav__logo-text">Genetic<span>Homeopathy</span></span>
+        <img src="assets/images/logo.png" alt="Genetic Homeopathy Logo" class="nav__logo-img" width="180" height="auto">
       </a>
 
       <div class="nav__links" id="nav-links">
@@ -99,27 +89,56 @@
   </div>
 
   <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero__inner">
-        <div class="hero__content fade-in">
-          <span class="label hero__label">Natural Wellness • Est. 2018</span>
-          <h1 class="hero__title">Healing<br><em>Naturally</em></h1>
-          <p class="hero__description">
-            Embrace holistic wellness through the gentle power of homeopathy. 
-            Discover personalized remedies tailored to your unique constitution, 
-            guided by centuries of natural healing wisdom.
-          </p>
-          <div class="hero__ctas">
-            <a href="we-treat.html" class="btn btn--primary btn--lg" id="hero-explore">What We Treat</a>
-            <a href="contact.html" class="btn btn--outline btn--lg" id="hero-consult">Book Consultation</a>
+  <section class="hero-slider" id="hero-slider" aria-label="Welcome to Genetic Homeopathy">
+    <div class="hero-slider__track" id="hero-slider-track">
+      <!-- Slide 1 -->
+      <div class="hero-slide active">
+        <img src="assets/images/homeopathy-medicines.png" class="hero-slide__bg" alt="Holistic healing botanical" fetchpriority="high">
+        <div class="hero-slide__overlay"></div>
+        <div class="container hero-slide__container">
+          <div class="hero-slide__content">
+            <span class="label hero-slide__label fade-in-up">Natural Wellness • Est. 2018</span>
+            <h1 class="hero-slide__title fade-in-up stagger-1">Healing<br><em>Naturally</em></h1>
+            <p class="hero-slide__description fade-in-up stagger-2">
+              Embrace holistic wellness through the gentle power of homeopathy. 
+              Discover personalized remedies tailored to your unique constitution, 
+              guided by centuries of natural healing wisdom.
+            </p>
+            <div class="hero__ctas fade-in-up stagger-3">
+              <a href="we-treat.html" class="btn btn--primary btn--lg" id="hero-explore">What We Treat</a>
+              <a href="contact.html" class="btn btn--outline btn--lg" id="hero-consult" style="border-color: white; color: white;">Book Consultation</a>
+            </div>
           </div>
         </div>
-        <div class="hero__image fade-in-right">
-          <img src="assets/images/hero-botanical.png" alt="Watercolor botanical illustration of chamomile and lavender flowers" width="500" height="500" loading="eager">
+      </div>
+      
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <img src="assets/images/clinic-interior.png" class="hero-slide__bg" alt="Clinic Interior" loading="lazy">
+        <div class="hero-slide__overlay"></div>
+        <div class="container hero-slide__container">
+          <div class="hero-slide__content">
+            <span class="label hero-slide__label">Telehealth Available</span>
+            <h1 class="hero-slide__title">Healing with Purity.<br><em>Wherever You Are.</em></h1>
+            <p class="hero-slide__description">
+              Experience compassionate care and global telehealth right from your home. 
+              We deliver homeopathic medicine to your doorstep worldwide.
+            </p>
+            <div class="hero__ctas">
+              <a href="contact.html" class="btn btn--primary btn--lg">Book an Appointment</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    
+    <!-- Controls -->
+    <button class="hero-slider__nav hero-slider__nav--prev" id="slider-prev" aria-label="Previous slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="hero-slider__nav hero-slider__nav--next" id="slider-next" aria-label="Next slide">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
   </section>
 
   <!-- Meet Your Homeopath -->
@@ -446,7 +465,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <div class="footer__logo">Genetic<span>Homeopathy</span></div>
+          <img src="assets/images/logo.png" alt="Genetic Homeopathy Logo" class="footer__logo-img" width="200" height="auto" style="margin-bottom: 1rem;">
           <p class="footer__description">
             Embracing the gentle power of nature to restore balance, vitality, and wellness. Your trusted partner in holistic homeopathic care since 2018.
           </p>
