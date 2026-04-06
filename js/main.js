@@ -214,10 +214,6 @@ function initTreatGrid() {
     children: {
       title: 'Pediatric Care',
       conditions: ['Colic & Infantile Reflux', 'Teething Problems', 'ADHD & Behavioral Issues', 'Recurrent Ear Infections', 'Bedwetting (Enuresis)', 'Growth & Development Delays', 'Childhood Asthma', 'Autism Spectrum Support', 'Frequent Tonsillitis']
-    },
-    autoimmune: {
-      title: 'Autoimmune Conditions',
-      conditions: ['Hashimoto\'s Thyroiditis', 'Lupus (SLE)', 'Rheumatoid Arthritis', 'Multiple Sclerosis Support', 'Celiac Disease', 'Sjögren\'s Syndrome', 'Psoriatic Arthritis', 'Type 1 Diabetes Support']
     }
   };
 
