@@ -190,30 +190,37 @@ function initTreatGrid() {
   const conditionsData = {
     skin: {
       title: 'Skin Diseases',
+      url: 'treatment-skin.html',
       conditions: ['Eczema (Atopic Dermatitis)', 'Psoriasis', 'Acne Vulgaris', 'Urticaria (Hives)', 'Fungal Infections', 'Vitiligo', 'Warts & Molluscum', 'Lichen Planus', 'Dermatitis', 'Rosacea', 'Alopecia', 'Seborrheic Dermatitis']
     },
     respiratory: {
       title: 'Respiratory Conditions',
+      url: 'treatment-respiratory.html',
       conditions: ['Asthma', 'Allergic Rhinitis (Hay Fever)', 'Chronic Sinusitis', 'Bronchitis', 'Recurrent Colds & Flu', 'Adenoid Hypertrophy', 'Nasal Polyps', 'Chronic Cough', 'Tonsillitis']
     },
     digestive: {
       title: 'Digestive Disorders',
+      url: 'treatment-digestive.html',
       conditions: ['Irritable Bowel Syndrome (IBS)', 'Acid Reflux / GERD', 'Chronic Constipation', 'Ulcerative Colitis', 'Bloating & Gas', 'Crohn\'s Disease', 'Gastritis', 'Food Allergies & Intolerances', 'Liver Disorders']
     },
     mental: {
       title: 'Mental & Emotional Health',
+      url: 'treatment-mental.html',
       conditions: ['Generalized Anxiety', 'Depression', 'Insomnia & Sleep Disorders', 'Panic Attacks', 'OCD', 'Chronic Stress & Burnout', 'PTSD', 'Grief & Emotional Trauma', 'Chronic Fatigue Syndrome']
     },
     joint: {
       title: 'Joint & Musculoskeletal',
+      url: 'treatment-joint.html',
       conditions: ['Rheumatoid Arthritis', 'Osteoarthritis', 'Gout', 'Cervical Spondylosis', 'Fibromyalgia', 'Sciatica', 'Osteoporosis', 'Frozen Shoulder', 'Carpal Tunnel Syndrome']
     },
     women: {
       title: 'Women\'s Health',
+      url: 'treatment-women.html',
       conditions: ['PCOS', 'Endometriosis', 'PMS & Dysmenorrhea', 'Menopause Symptoms', 'Infertility Support', 'Uterine Fibroids', 'Leucorrhea', 'Pregnancy-Related Complaints', 'Thyroid Disorders']
     },
     children: {
       title: 'Pediatric Care',
+      url: 'treatment-pediatric.html',
       conditions: ['Colic & Infantile Reflux', 'Teething Problems', 'ADHD & Behavioral Issues', 'Recurrent Ear Infections', 'Bedwetting (Enuresis)', 'Growth & Development Delays', 'Childhood Asthma', 'Autism Spectrum Support', 'Frequent Tonsillitis']
     }
   };
@@ -236,6 +243,12 @@ function initTreatGrid() {
       expandList.innerHTML = data.conditions.map(condition =>
         `<div class="treat-expand__item">${checkSVG}${condition}</div>`
       ).join('');
+
+      const treatBookBtn = document.getElementById('treat-book-btn');
+      if (treatBookBtn) {
+        treatBookBtn.href = data.url;
+        treatBookBtn.textContent = `View Details for ${data.title}`;
+      }
 
       expandPanel.classList.add('active');
       expandPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
