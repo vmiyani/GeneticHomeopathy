@@ -323,7 +323,7 @@ h4 { font-size: var(--text-xl); }
   -webkit-backdrop-filter: blur(20px);
   z-index: 1000;
   border-bottom: 1px solid var(--border-sage);
-  transition: box-shadow var(--duration-normal) var(--ease-out);
+  transition: box-shadow var(--duration-normal) var(--ease-out), top var(--duration-normal) var(--ease-out);
 }
 
 .nav--scrolled {
@@ -1742,6 +1742,10 @@ textarea.form-input {
 /* Adjust nav position when top-bar is present */
 .has-top-bar .nav {
   top: 36px;
+}
+
+.has-top-bar .nav.nav--scrolled {
+  top: 0;
 }
 
 .has-top-bar .hero {
