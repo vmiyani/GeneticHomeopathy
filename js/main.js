@@ -651,6 +651,36 @@ function initHeroSlider() {
   if (btnNext) btnNext.addEventListener('click', nextSlide);
   if (btnPrev) btnPrev.addEventListener('click', prevSlide);
 
+  // Touch Swipe Support
+  const sliderSection = document.getElementById('hero-slider');
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  if (sliderSection) {
+    sliderSection.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+      // Pause auto-play when user touches the slider
+      clearInterval(sliderInterval);
+    }, {passive: true});
+
+    sliderSection.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+      // Resume auto-play after interaction
+      resetInterval();
+    }, {passive: true});
+  }
+
+  function handleSwipe() {
+    const swipeThreshold = 50; // Minimum pixels to qualify as a swipe
+    if (touchEndX < touchStartX - swipeThreshold) {
+      nextSlide(); // Swiped left
+    }
+    if (touchEndX > touchStartX + swipeThreshold) {
+      prevSlide(); // Swiped right
+    }
+  }
+
   // Start auto play
   resetInterval();
 }
