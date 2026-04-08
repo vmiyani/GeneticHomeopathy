@@ -567,7 +567,7 @@ h4 { font-size: var(--text-xl); }
 }
 
 .hero-slider__nav--next {
-  right: var(--space-6);
+  right: 80px; /* Offset to prevent overlap with sticky quick-contact sidebar */
 }
 
 @media (max-width: 768px) {
