@@ -698,26 +698,3 @@ function initHeroSlider() {
   resetInterval();
 }
 
-/* ---------- Treatment FAQ Accordion ---------- */
-function initTreatmentFAQ() {
-  const triggers = document.querySelectorAll('.faq-acc-trigger');
-  
-  triggers.forEach(trigger => {
-    trigger.addEventListener('click', () => {
-      const item = trigger.parentElement;
-      const isActive = item.classList.contains('active');
-      
-      // Close all other items (optional, but cleaner)
-      document.querySelectorAll('.faq-acc-item').forEach(i => i.classList.remove('active'));
-      
-      if (!isActive) {
-        item.classList.add('active');
-      }
-    });
-  });
-}
-
-// Re-initialize for generated pages
-document.addEventListener('DOMContentLoaded', () => {
-  initTreatmentFAQ();
-});
