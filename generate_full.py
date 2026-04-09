@@ -24,7 +24,8 @@ categories = [
             "Digestive dysfunction or poor gut health (microbiome imbalance)",
             "Systemic stress, anxiety, or emotional trauma",
             "Genetic predispositions and family history"
-        ]
+        ],
+        "icon": "🧴"
     },
     {
         "id": "respiratory",
@@ -47,7 +48,8 @@ categories = [
             "Exposure to harsh airborne pollutants or chemicals",
             "Unresolved childhood respiratory illnesses",
             "Genetic predisposition to asthma or atopy"
-        ]
+        ],
+        "icon": "🫁"
     },
     {
         "id": "digestive",
@@ -55,7 +57,7 @@ categories = [
         "title": "Digestive Disorders",
         "title_lower": "digestive",
         "subtitle": "Restore gut health and digestive harmony with individualized remedies that address underlying gastrointestinal dysfunction.",
-        "intro_html": "<p>The digestive system is the core of our overall health. The homeopathic approach to digestive disorders focuses heavily on the gut-brain axis and your constitutional makeup. Dr. Riddhi Mayani thoroughly investigates not just what you eat, but how your body processes stress and emotions.</p><p>By treating the individual rather than just the localized inflammation, our homeopathic remedies soothe gut linings, improve enzymatic function, and promote lasting rhythmic bowel harmony without the need for lifetime systemic dependence.</p>",
+        "intro_html": "<p>The digestive system is the core of our overall health. The homeopathic approach to digestive disorders focuses heavily on the gut-brain axis and your constitutional makeup. Dr. Riddhi Mayani thoroughly investigates not just what you eat, but how your body processes stress and emotions.</p><p>By treating the individual rather than just the localized inflammation, our homeopathic remedies soothe gut linings, improve enzymatic function, and promote lasting rhythmic bowel harmony by restoring the body's natural rhythms.</p>",
         "what_is_html": "<p>Digestive disorders refer to a wide spectrum of health issues occurring anywhere in the gastrointestinal (GI) tract, from the esophagus and stomach to the intestines and liver.</p><p>Conditions such as Irritable Bowel Syndrome (IBS), Acid Reflux (GERD), and Ulcerative Colitis are increasingly common. They disrupt the body’s ability to digest food, absorb vital nutrients, and successfully eliminate waste, drastically impacting energy levels and comfort.</p>",
         "symptoms": [
             "Chronic abdominal pain, cramping, or severe bloating",
@@ -70,7 +72,8 @@ categories = [
             "Disruption of the gut microbiome (dysbiosis)",
             "Sedentary lifestyle and lack of adequate hydration",
             "Underlying autoimmune or inflammatory disease markers"
-        ]
+        ],
+        "icon": "🍃"
     },
     {
         "id": "mental",
@@ -79,7 +82,7 @@ categories = [
         "title_lower": "mental and emotional",
         "subtitle": "Gentle, comprehensive care for psychological well-being that tackles root emotional traumas without internal reliance.",
         "intro_html": "<p>Mental health is a vital constituent of an individual's general well-being. Dr. Riddhi Mayani takes a deeply holistic approach to mental and emotional disorders. Recognizing the deep link between mind and body, homeopathy aims at healing the mind-body connection from its root.</p><p>Homeopathy works by evaluating your state of health, emotions, specific fears, and precise mind-frame. By utilizing natural micro-doses, it gently activates the body's intrinsic ability to balance neurotransmitters and process unresolved mental blockages.</p>",
-        "what_is_html": "<p>Mental diseases are conditions of the mind that fundamentally alter a person’s mood, emotional processing, cognitive thoughts, and behavior. These states can severely reduce an individual’s ability to handle everyday tasks, maintain relationships, and sustain stability.</p><p>Common conditions targeted by homeopathy include Generalized Anxiety, Clinical Depression, OCD, Panic Attacks, PTSD, and severe Insomnia. Homeopathic medicine has historically shown profound efficacy in treating these states gently and without dependency concerns or harsh systemic effects.</p>",
+        "what_is_html": "<p>Mental diseases are conditions of the mind that fundamentally alter a person’s mood, emotional processing, cognitive thoughts, and behavior. These states can severely reduce an individual’s ability to handle everyday tasks, maintain relationships, and sustain stability.</p><p>Common conditions targeted by homeopathy include Generalized Anxiety, Clinical Depression, OCD, Panic Attacks, PTSD, and severe Insomnia. Homeopathic medicine has historically shown profound efficacy in treating these states naturally and gently.</p>",
         "symptoms": [
             "Consistent hopelessness, persistent sadness, or severe low mood",
             "Constant debilitating worry, fear, or generalized anxiety",
@@ -93,7 +96,8 @@ categories = [
             "Deep-seated grief, sudden emotional shock, or tragic loss",
             "Undermined physical health or chronic chronic pain conditions",
             "Genetic predispositions alongside environmental triggers"
-        ]
+        ],
+        "icon": "🧠"
     },
     {
         "id": "joint",
@@ -116,7 +120,8 @@ categories = [
             "Metabolic disorders leading to uric acid crystal deposition (Gout)",
             "Historical physical injuries, strains, fractures, or blunt trauma",
             "Poor posture, sedentary habits, and nutritional calcium/vitamin D deficiency"
-        ]
+        ],
+        "icon": "🦴"
     },
     {
         "id": "women",
@@ -139,7 +144,8 @@ categories = [
             "High levels of physiological stress severely disrupting the menstrual cycle",
             "Genetic predispositions toward fibroids, cysts, or endometriosis",
             "Underlying nutritional deficiencies and autoimmune markers"
-        ]
+        ],
+        "icon": "🌸"
     },
     {
         "id": "children",
@@ -162,7 +168,8 @@ categories = [
             "Nutritional malabsorption interfering with rapid physical development",
             "Environmental triggers, food intolerances, and heavy metal exposure",
             "Emotional sensitivities, anxiety, or disruptions in standard routines"
-        ]
+        ],
+        "icon": "👶"
     },
     {
         "id": "kidney",
@@ -185,7 +192,8 @@ categories = [
             "Hormonal fluctuations naturally associated with aging (e.g., prostate enlargement)",
             "Chronic dehydration coupled with poor dietary choices and high sodium",
             "Underlying structural abnormalities in the urinary system"
-        ]
+        ],
+        "icon": "💧"
     },
     {
         "id": "hair",
@@ -208,9 +216,20 @@ categories = [
             "Genetic predispositions contributing to pattern baldness",
             "Nutritional deficiencies (especially iron, vitamin D, and B-vitamins)",
             "Autoimmune reactions where the body mistakenly attacks its own hair follicles"
-        ]
+        ],
+        "icon": "💇"
     }
 ]
+
+def render_filters(active_id):
+    html = '<div class="filters fade-in" style="margin-top: var(--space-8); justify-content: center; display: flex; flex-wrap: wrap; gap: var(--space-2);">'
+    html += f'<a href="we-treat.html" class="filter-pill">All Categories</a>'
+    for cat in categories:
+        active_class = " filter-pill--active" if cat["id"] == active_id else ""
+        html += f'<a href="{cat["filename"]}" class="filter-pill{active_class}">{cat["icon"]} {cat["title"]}</a>'
+    html += '</div>'
+    return html
+
 
 def render_list(items):
     html = ""
@@ -291,7 +310,18 @@ for cat in categories:
     </div>
   </section>
 
-  <!-- Section 4: CTA -->
+  <!-- Section 4: Quick Navigation -->
+  <section class="section section--sage" id="quick-nav">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Explore More</span>
+        <h2>Browse Other Treatments</h2>
+      </div>
+      {render_filters(cat["id"])}
+    </div>
+  </section>
+
+  <!-- Section 5: CTA -->
   <section class="section" id="cta-section">
     <div class="container">
       <div class="cta-banner fade-in">
@@ -304,6 +334,7 @@ for cat in categories:
       </div>
     </div>
   </section>
+
 
 '''
     
