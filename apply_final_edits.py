@@ -17,7 +17,7 @@ for file in files_to_update:
     content = content.replace("Secure, HIPAA-compliant video platform", "Telehealth consultation via WhatsApp video chat")
 
     # 2. Email Address update
-    content = content.replace("rm.genetichomeopath@gmail.com", "Rm.genetichomeopathy@gmail.com")
+    content = content.replace("rm.genetichomeopath@gmail.com", "rm.genetichomeopathy@gmail.com")
 
     # 3. Doctor Image update
     content = content.replace("doctor-sarah.png", "doctor-riddhi.png")
