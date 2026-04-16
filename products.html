@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" class="has-top-bar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop homeopathic medicines from GeneticHomeopathy. Natural remedies for skin, respiratory, joint health and more, delivered to your doorstep.">
+  <meta name="keywords" content="homeopathic medicines, buy homeopathy, natural remedies, online homeopathy shop, Canada">
+  <title>Shop Medicines — GeneticHomeopathy</title>
+
+  <!-- Shopify Storefront Web Components -->
+  <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
+
+  <!-- Site Fonts & Styles -->
+  <link rel="stylesheet" href="css/styles.css?v=6">
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+
+  <style>
+    /* ============================================================
+       SHOP PAGE — Scoped Styles
+       Design tokens inherited from styles.css
+    ============================================================ */
+
+    /* Page hero banner */
+    .shop-hero {
+      background: linear-gradient(135deg, var(--sage-800) 0%, var(--sage-600) 100%);
+      padding: calc(var(--nav-height) + 64px) 0 64px;
+      text-align: center;
+      color: white;
+    }
+    .shop-hero__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-300);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .shop-hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .shop-hero__subtitle {
+      font-size: 1.0625rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    /* Cart trigger button in top bar */
+    .cart-trigger-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .cart-trigger-btn:hover {
+      background: rgba(255,255,255,0.28);
+    }
+    .cart-trigger-btn svg {
+      flex-shrink: 0;
+    }
+
+    /* ————————— Product Grid ————————— */
+    .shop-section {
+      padding: 64px 0;
+      background: var(--sage-50);
+      min-height: 60vh;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 1024px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .product-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* Skeleton loader */
+    .skeleton-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .skeleton-img {
+      width: 100%;
+      aspect-ratio: 1;
+      background: linear-gradient(90deg, #e8ebe3 25%, #d4daca 50%, #e8ebe3 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.6s infinite;
+    }
+    .skeleton-body { padding: 24px; }
+    .skeleton-line {
+      height: 14px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #e8ebe3 25%, #d4daca 50%, #e8ebe3 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.6s infinite;
+      margin-bottom: 12px;
+    }
+    .skeleton-line--short { width: 50%; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    /* ————————— Product Card ————————— */
+    .product-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Full image, no crop */
+    .product-card__image-wrap {
+      width: 100%;
+      background: var(--sage-50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .product-card__image-wrap shopify-media {
+      display: block;
+      width: 100%;
+    }
+    .product-card__image-wrap img {
+      width: 100%;
+      height: auto;
+      object-fit: contain; /* Never crop */
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+
+    .product-card__body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .product-card__category {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--sage-600);
+      margin-bottom: 8px;
+    }
+    .product-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--sage-800); /* #3d4a35 – 9.3:1 on white ✓ */
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .product-card__price {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--sage-700); /* #556448 – 7:1 on white ✓ */
+      margin-bottom: 24px;
+    }
+    .product-card__btn {
+      margin-top: auto;
+      width: 100%;
+      background: var(--sage-700);
+      color: white;
+      border: 2px solid var(--sage-700);
+      border-radius: var(--radius-full);
+      padding: 12px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+    .product-card__btn:hover {
+      background: white;
+      color: var(--sage-700);
+    }
+
+    /* ————————— Product Detail Modal ————————— */
+    .product-modal {
+      border: none;
+      border-radius: var(--radius-xl);
+      padding: 0;
+      width: 90vw;
+      max-width: 860px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 32px 64px rgba(0,0,0,0.25);
+      /* Center alignment – native dialog centres automatically */
+    }
+    .product-modal::backdrop {
+      background: rgba(44, 53, 39, 0.65);
+      backdrop-filter: blur(6px);
+    }
+
+    .product-modal__close-row {
+      display: flex;
+      justify-content: flex-end;
+      padding: 16px 16px 0;
+    }
+    .product-modal__close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: var(--sage-100);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sage-800);
+      transition: background 0.2s ease;
+      flex-shrink: 0;
+    }
+    .product-modal__close-btn:hover { background: var(--sage-200); }
+
+    .product-modal__layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 8px 40px 40px;
+    }
+    @media (max-width: 700px) {
+      .product-modal__layout {
+        grid-template-columns: 1fr;
+        padding: 8px 24px 24px;
+      }
+    }
+
+    .product-modal__media img {
+      width: 100%;
+      height: auto;
+      object-fit: contain; /* Full image */
+      border-radius: var(--radius-lg);
+      display: block;
+    }
+    .product-modal__media shopify-media {
+      display: block;
+    }
+
+    .product-modal__details {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .product-modal__vendor {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sage-500);
+      margin-bottom: 8px;
+    }
+    .product-modal__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--sage-800);
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+    .product-modal__price {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--sage-700);
+      margin-bottom: 24px;
+    }
+    .product-modal__divider {
+      border: none;
+      border-top: 1px solid var(--border-sage);
+      margin: 24px 0;
+    }
+
+    /* Variant selector theming */
+    shopify-variant-selector::part(form) {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    shopify-variant-selector::part(label) {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--sage-800);
+    }
+    shopify-variant-selector::part(radio) {
+      border: 2px solid var(--border-sage);
+      border-radius: var(--radius-sm);
+      padding: 6px 14px;
+      font-size: 0.875rem;
+      cursor: pointer;
+      color: var(--sage-700);
+    }
+    shopify-variant-selector::part(radio-selected) {
+      border-color: var(--sage-700);
+      background: var(--sage-100);
+      color: var(--sage-800);
+      font-weight: 600;
+    }
+
+    .product-modal__btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .btn-add-to-cart {
+      width: 100%;
+      background: var(--sage-700);
+      color: white;
+      border: 2px solid var(--sage-700);
+      border-radius: var(--radius-full);
+      padding: 14px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+      min-height: 52px;
+    }
+    .btn-add-to-cart:hover { background: var(--sage-800); border-color: var(--sage-800); }
+    .btn-add-to-cart:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .btn-buy-now {
+      width: 100%;
+      background: white;
+      color: var(--sage-700);
+      border: 2px solid var(--sage-700);
+      border-radius: var(--radius-full);
+      padding: 14px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+      min-height: 52px;
+    }
+    .btn-buy-now:hover { background: var(--sage-50); }
+    .btn-buy-now:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .product-modal__description {
+      font-size: 0.875rem;
+      color: var(--text-secondary); /* #6b6b6b – 4.6:1 on white ✓ */
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+    .product-modal__description p { margin: 0; }
+
+    /* ————————— Cart Styling ————————— */
+    shopify-cart::part(dialog) {
+      border-radius: var(--radius-xl);
+      border: none;
+      box-shadow: var(--shadow-xl);
+      max-width: 440px;
+      width: 95vw;
+      padding: 8px;
+    }
+    shopify-cart::part(primary-button) {
+      background-color: var(--sage-700);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      padding: 14px 24px;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      width: 100%;
+    }
+    shopify-cart::part(secondary-button) {
+      background-color: white;
+      color: var(--sage-800);
+      fill: var(--sage-800); /* required per docs */
+      border: 1px solid var(--border-sage);
+      border-radius: var(--radius-md);
+      padding: 6px 12px;
+      font-size: 0.8125rem;
+      cursor: pointer;
+    }
+
+    /* ————————— Utility ————————— */
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px;
+      margin: -1px; padding: 0; overflow: hidden;
+      clip: rect(0,0,0,0); border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== TOP CONTACT BAR ===== -->
+  <div class="top-bar" id="top-bar">
+    <div class="top-bar__inner">
+      <div class="top-bar__info">
+        <a href="tel:+18258890473" class="top-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +1 (825) 889-0473
+        </a>
+        <a href="mailto:rm.genetichomeopathy@gmail.com" class="top-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          rm.genetichomeopathy@gmail.com
+        </a>
+      </div>
+      <div class="top-bar__social">
+        <button class="cart-trigger-btn" onclick="document.getElementById('site-cart').showModal()" aria-label="Open shopping cart">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          View Cart
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="main-nav" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" id="nav-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" class="nav__logo-svg">
+          <image x="0" y="0" width="170" height="120" href="assets/images/logo-icon.png" />
+          <text x="180" y="70" class="logo-svg-title">Genetic</text>
+          <text x="185" y="105" class="logo-svg-subtitle">HOMEOPATHY</text>
+        </svg>
+      </a>
+
+      <div class="nav__links" id="nav-links">
+        <a href="index.html" class="nav__link" id="nav-home">Home</a>
+        <div class="nav__dropdown" id="nav-about-dropdown">
+          <a href="about.html" class="nav__link nav__dropdown-trigger" id="nav-about">About
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <div class="nav__dropdown-menu">
+            <a href="about.html" class="nav__dropdown-link">About Us</a>
+            <a href="about-homeopathy.html" class="nav__dropdown-link">About Homeopathy</a>
+          </div>
+        </div>
+        <a href="we-treat.html" class="nav__link" id="nav-treat">We Treat</a>
+        <a href="products.html" class="nav__link nav__link--active" id="nav-shop">Shop</a>
+        <a href="reviews.html" class="nav__link" id="nav-reviews">Reviews</a>
+        <a href="contact.html" class="nav__link" id="nav-contact">Consultation</a>
+        <a href="contact.html" class="btn btn--primary btn--sm nav__cta" id="nav-cta">Book Now</a>
+      </div>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="nav-overlay"></div>
+
+  <!-- ===== SHOPIFY STORE CONTEXT ===== -->
+  <shopify-store
+    store-domain="genetic-homeopathy.myshopify.com"
+    public-access-token="291415f482165da3e3070737b6a398dd"
+    country="CA"
+    language="en"
+  >
+
+    <!-- Cart Component (global, always present) -->
+    <shopify-cart id="site-cart">
+      <div slot="empty" style="text-align:center; padding: 32px 16px; color: var(--text-secondary); font-family: var(--font-sans);">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#b5c0a7" stroke-width="1.5" style="margin: 0 auto 16px; display:block;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <p style="font-size:0.9375rem; margin:0;">Your cart is empty</p>
+        <p style="font-size:0.8125rem; margin:8px 0 0; color: var(--text-light);">Add some natural remedies to get started!</p>
+      </div>
+      <div slot="checkout-button">Proceed to Checkout →</div>
+    </shopify-cart>
+
+    <!-- ===== HERO ===== -->
+    <section class="shop-hero">
+      <div class="container">
+        <span class="shop-hero__label">Natural Remedies</span>
+        <h1 class="shop-hero__title">Homeopathic Medicines</h1>
+        <p class="shop-hero__subtitle">Explore our curated collection of carefully formulated remedies. Delivered to your doorstep — anywhere in the world.</p>
+        <button class="btn btn--gold btn--lg" onclick="document.getElementById('site-cart').showModal()">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="margin-right:6px;"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Open Cart
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCT GRID ===== -->
+    <main class="shop-section" id="shop-main">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="label">Our Products</span>
+          <h2>Browse All Medicines</h2>
+          <p class="subtitle subtitle--centered">Every remedy is sourced from trusted homeopathic suppliers and selected by Dr. Riddhi Mayani.</p>
+        </div>
+
+        <!-- Product list — fetched live from Shopify -->
+        <div class="product-grid" id="product-grid">
+          <shopify-list-context type="product" query="products" first="12">
+
+            <!-- Skeleton placeholders shown while loading -->
+            <div shopify-loading-placeholder style="display: contents;">
+              <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div></div>
+              <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div></div>
+              <div class="skeleton-card"><div class="skeleton-img"></div><div class="skeleton-body"><div class="skeleton-line"></div><div class="skeleton-line skeleton-line--short"></div></div></div>
+            </div>
+
+            <!-- Repeated template for each product -->
+            <template>
+              <article class="product-card">
+                <div class="product-card__image-wrap">
+                  <shopify-media
+                    width="320"
+                    height="320"
+                    layout="constrained"
+                    query="product.selectedOrFirstAvailableVariant.image"
+                  ></shopify-media>
+                </div>
+                <div class="product-card__body">
+                  <p class="product-card__category">
+                    <shopify-data query="product.vendor"></shopify-data>
+                  </p>
+                  <h3 class="product-card__title">
+                    <shopify-data query="product.title"></shopify-data>
+                  </h3>
+                  <div class="product-card__price">
+                    <shopify-money
+                      format="money_with_currency"
+                      query="product.selectedOrFirstAvailableVariant.price"
+                    ></shopify-money>
+                  </div>
+                  <button
+                    class="product-card__btn"
+                    onclick="document.getElementById('product-modal').showModal(); document.getElementById('product-modal-context').update(event);"
+                  >
+                    View &amp; Purchase
+                  </button>
+                </div>
+              </article>
+            </template>
+
+          </shopify-list-context>
+        </div><!-- /product-grid -->
+      </div>
+    </main>
+
+    <!-- ===== PRODUCT DETAIL MODAL ===== -->
+    <dialog id="product-modal" class="product-modal" aria-modal="true" aria-label="Product details">
+      <shopify-context id="product-modal-context" type="product" wait-for-update>
+
+        <div shopify-loading-placeholder style="padding: 80px 40px; text-align: center; font-family: var(--font-sans); color: var(--text-secondary);">
+          <div class="skeleton-img" style="width:200px; height:200px; border-radius:50%; margin: 0 auto 24px;"></div>
+          <p>Loading product details…</p>
+        </div>
+
+        <template>
+          <div class="product-modal__close-row">
+            <button
+              class="product-modal__close-btn"
+              onclick="document.getElementById('product-modal').close();"
+              aria-label="Close product details"
+            >
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+
+          <div class="product-modal__layout">
+            <!-- Left: Product Image -->
+            <div class="product-modal__media">
+              <shopify-media
+                width="420"
+                height="420"
+                layout="constrained"
+                query="product.selectedOrFirstAvailableVariant.image"
+              ></shopify-media>
+            </div>
+
+            <!-- Right: Details -->
+            <div class="product-modal__details">
+              <p class="product-modal__vendor">
+                <shopify-data query="product.vendor"></shopify-data>
+              </p>
+              <h2 class="product-modal__title">
+                <shopify-data query="product.title"></shopify-data>
+              </h2>
+              <div class="product-modal__price">
+                <shopify-money
+                  format="money_with_currency"
+                  query="product.selectedOrFirstAvailableVariant.price"
+                ></shopify-money>
+              </div>
+
+              <hr class="product-modal__divider">
+
+              <!-- Variant picker -->
+              <shopify-variant-selector></shopify-variant-selector>
+
+              <!-- Action buttons -->
+              <div class="product-modal__btn-group">
+                <button
+                  class="btn-add-to-cart"
+                  onclick="document.getElementById('site-cart').addLine(event).showModal();"
+                  shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
+                >
+                  Add to Cart
+                </button>
+                <button
+                  class="btn-buy-now"
+                  onclick="document.querySelector('shopify-store').buyNow(event);"
+                  shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
+                >
+                  Buy Now
+                </button>
+              </div>
+
+              <hr class="product-modal__divider">
+
+              <!-- Description -->
+              <div class="product-modal__description">
+                <shopify-data query="product.descriptionHtml"></shopify-data>
+              </div>
+            </div>
+          </div><!-- /product-modal__layout -->
+        </template>
+
+      </shopify-context>
+    </dialog>
+
+  </shopify-store><!-- /shopify-store -->
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo-link">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" class="footer__logo-svg">
+              <image x="0" y="0" width="170" height="120" href="assets/images/logo-icon-footer.png" />
+              <text x="180" y="70" class="logo-svg-title" fill="#ffffff">Genetic</text>
+              <text x="185" y="105" class="logo-svg-subtitle">HOMEOPATHY</text>
+            </svg>
+          </a>
+          <p class="footer__description">
+            Embracing the gentle power of nature to restore balance, vitality, and wellness. Your trusted partner in holistic homeopathic care since 2018.
+          </p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/profile.php?id=100094415055135" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/genetic_homeopathy/" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Quick Links</h4>
+          <nav class="footer__links" aria-label="Footer quick links">
+            <a href="index.html" class="footer__link">Home</a>
+            <a href="about.html" class="footer__link">About Us</a>
+            <a href="products.html" class="footer__link">Shop</a>
+            <a href="contact.html" class="footer__link">Consultation</a>
+          </nav>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">What We Treat</h4>
+          <nav class="footer__links" aria-label="Treatment categories">
+            <a href="treatment-skin.html" class="footer__link">Skin Diseases</a>
+            <a href="treatment-respiratory.html" class="footer__link">Respiratory</a>
+            <a href="treatment-digestive.html" class="footer__link">Digestive</a>
+            <a href="treatment-mental.html" class="footer__link">Mental Health</a>
+            <a href="treatment-joint.html" class="footer__link">Joint &amp; Bone</a>
+            <a href="treatment-women.html" class="footer__link">Women's Health</a>
+          </nav>
+        </div>
+
+        <div>
+          <h4 class="footer__heading">Contact</h4>
+          <div class="footer__links">
+            <span class="footer__link">📍 <a href="https://maps.google.com/?q=1707+62+Ave+NE,+Nisku,+AB+T4X+3C8" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">1707 62 Ave NE, Nisku, AB</a></span>
+            <a href="tel:+18258890473" class="footer__link">📞 +1 (825) 889-0473</a>
+            <a href="mailto:rm.genetichomeopathy@gmail.com" class="footer__link">✉️ rm.genetichomeopathy@gmail.com</a>
+            <span class="footer__link">🕘 Mon–Fri: 9 AM – 7 PM</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 GeneticHomeopathy. All rights reserved.</p>
+        <div class="footer__legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=6" defer></script>
+</body>
+</html>
