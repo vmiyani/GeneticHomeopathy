@@ -1574,7 +1574,6 @@ textarea.form-input {
 
   .nav__cart-btn {
     margin-left: 0;
-    width: 100%;
     justify-content: center;
     min-height: 48px;
     font-size: var(--text-sm);
