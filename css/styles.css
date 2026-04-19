@@ -370,7 +370,7 @@ h4 { font-size: var(--text-xl); }
 .nav__links {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 .nav__link {
@@ -405,6 +405,35 @@ h4 { font-size: var(--text-xl); }
 
 .nav__cta {
   margin-left: var(--space-4);
+}
+
+/* Nav Cart Button */
+.nav__cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--sage-600);
+  color: white;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  border: 1.5px solid var(--sage-600);
+  transition: all var(--duration-normal) var(--ease-out);
+  min-height: 40px;
+  margin-left: var(--space-2);
+  white-space: nowrap;
+}
+.nav__cart-btn:hover {
+  background: var(--sage-700);
+  border-color: var(--sage-700);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.nav__cart-btn svg {
+  flex-shrink: 0;
 }
 
 /* Mobile Nav Toggle */
@@ -1541,6 +1570,14 @@ textarea.form-input {
 
   .nav__cta {
     margin-left: 0;
+  }
+
+  .nav__cart-btn {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    font-size: var(--text-sm);
   }
 
   .hero {

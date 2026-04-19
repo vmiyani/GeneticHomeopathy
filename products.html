@@ -51,28 +51,7 @@
       line-height: 1.7;
     }
 
-    /* Cart trigger button in top bar */
-    .cart-trigger-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.4);
-      color: white;
-      font-family: var(--font-sans);
-      font-size: 0.8125rem;
-      font-weight: 500;
-      padding: 6px 14px;
-      border-radius: var(--radius-full);
-      cursor: pointer;
-      transition: background 0.2s ease;
-    }
-    .cart-trigger-btn:hover {
-      background: rgba(255,255,255,0.28);
-    }
-    .cart-trigger-btn svg {
-      flex-shrink: 0;
-    }
+
 
     /* ————————— Product Grid ————————— */
     .shop-section {
@@ -216,7 +195,10 @@
       max-height: 90vh;
       overflow-y: auto;
       box-shadow: 0 32px 64px rgba(0,0,0,0.25);
-      /* Center alignment – native dialog centres automatically */
+      /* Explicit centering for all browsers */
+      position: fixed;
+      inset: 0;
+      margin: auto;
     }
     .product-modal::backdrop {
       background: rgba(44, 53, 39, 0.65);
@@ -435,10 +417,8 @@
         </a>
       </div>
       <div class="top-bar__social">
-        <button class="cart-trigger-btn" onclick="document.getElementById('site-cart').showModal()" aria-label="Open shopping cart">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          View Cart
-        </button>
+        <a href="https://www.facebook.com/profile.php?id=100094415055135" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/genetic_homeopathy/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
       </div>
     </div>
   </div>
@@ -470,6 +450,10 @@
         <a href="reviews.html" class="nav__link" id="nav-reviews">Reviews</a>
         <a href="contact.html" class="nav__link" id="nav-contact">Consultation</a>
         <a href="contact.html" class="btn btn--primary btn--sm nav__cta" id="nav-cta">Book Now</a>
+        <button class="nav__cart-btn" id="nav-cart-btn" onclick="document.getElementById('site-cart').showModal()" aria-label="Open shopping cart">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          View Cart
+        </button>
       </div>
 
       <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
