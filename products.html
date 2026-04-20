@@ -405,6 +405,15 @@
       font-size: 0.8125rem;
       cursor: pointer;
     }
+    /* Cart line-item images — using official Shopify CSS parts */
+    shopify-cart::part(line-image) {
+      width: 64px;
+      min-width: 64px;
+      height: 64px;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      display: block;
+    }
 
     /* ————————— Utility ————————— */
     .visually-hidden {
@@ -590,9 +599,7 @@
             <!-- Left: Product Image -->
             <div class="product-modal__media">
               <shopify-media
-                width="420"
-                height="420"
-                layout="constrained"
+                layout="fullWidth"
                 query="product.selectedOrFirstAvailableVariant.image"
               ></shopify-media>
             </div>
