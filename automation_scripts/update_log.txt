@@ -1,0 +1,26 @@
+1. Uploading Logo Image...
+Logo created: gid://shopify/MediaImage/26410523951179
+Waiting for processing...
+2. Updating settings_data.json (Logo)...
+3. Updating header-group.json...
+4. Updating footer-group.json...
+API Error: 422 unknown
+Response body: {"errors":{"asset":["Setting 'text' is invalid. All top level nodes must be '\u003cp\u003e', '\u003cul\u003e', '\u003col\u003e' or '\u003ch1\u003e'-'\u003ch6\u003e' tags"]}}
+Traceback (most recent call last):
+  File "/Users/vikasm/Work/GeneticHomeopathy/update_header_footer.py", line 91, in <module>
+    api_put(f"/themes/{THEME_ID}/assets.json", {"asset": {"key": "sections/footer-group.json", "value": json.dumps(footer)}})
+  File "/Users/vikasm/Work/GeneticHomeopathy/update_header_footer.py", line 28, in api_put
+    with urllib.request.urlopen(req) as resp:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 523, in open
+    response = meth(req, response)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 632, in http_response
+    response = self.parent.error(
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 561, in error
+    return self._call_chain(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 641, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 422: unknown

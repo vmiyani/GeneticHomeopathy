@@ -1,0 +1,44 @@
+[
+  {
+    "type": "_divider"
+  },
+  {
+    "type": "@app"
+  },
+  {
+    "type": "button"
+  },
+  {
+    "type": "follow-on-shop"
+  },
+  {
+    "type": "group"
+  },
+  {
+    "type": "icon"
+  },
+  {
+    "type": "image"
+  },
+  {
+    "type": "menu"
+  },
+  {
+    "type": "payment-icons"
+  },
+  {
+    "type": "text"
+  },
+  {
+    "type": "logo"
+  },
+  {
+    "type": "jumbo-text"
+  },
+  {
+    "type": "social-links"
+  },
+  {
+    "type": "email-signup"
+  }
+]
