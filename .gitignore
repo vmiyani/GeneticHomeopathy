@@ -12,3 +12,7 @@ Thumbs.db
 .agent/
 .gemini/
 .superpowers/
+
+# Shopify credentials
+shopify_config.py
+
