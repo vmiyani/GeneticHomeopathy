@@ -403,7 +403,10 @@ function initContactForm() {
     // Basic validation
     const name = form.querySelector('#contact-name');
     const email = form.querySelector('#contact-email');
+    const phone = form.querySelector('#contact-phone');
+    const subject = form.querySelector('#contact-subject');
     const message = form.querySelector('#contact-message');
+    const submitBtn = form.querySelector('#contact-submit');
 
     let isValid = true;
 
@@ -424,15 +427,42 @@ function initContactForm() {
     }
 
     if (isValid) {
-      // Show success message
-      const successMsg = document.getElementById('form-success');
-      if (successMsg) {
-        successMsg.classList.add('show');
-        form.reset();
-        setTimeout(() => {
-          successMsg.classList.remove('show');
-        }, 5000);
-      }
+      // Show loading state
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        name: name.value,
+        email: email.value,
+        phone: phone ? phone.value : '',
+        subject: subject ? subject.options[subject.selectedIndex].text : 'General Inquiry',
+        message: message.value
+      };
+
+      // Send email using EmailJS
+      emailjs.send('service_2uf839e', 'template_xghzyf7', templateParams)
+        .then(function() {
+          // Show success message
+          const successMsg = document.getElementById('form-success');
+          if (successMsg) {
+            successMsg.classList.add('show');
+            form.reset();
+            setTimeout(() => {
+              successMsg.classList.remove('show');
+            }, 5000);
+          }
+        })
+        .catch(function(error) {
+          console.error('EmailJS Error:', error);
+          alert('Sorry, there was an error sending your message. Please try again later.');
+        })
+        .finally(function() {
+          // Restore button state
+          submitBtn.textContent = originalBtnText;
+          submitBtn.disabled = false;
+        });
     }
   });
 
